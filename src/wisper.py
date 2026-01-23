@@ -12,10 +12,8 @@ def transcribe(filename):
     for segment in segments:
         formatted_segment =f"{segment.text}" #[{segment.t0:.2f}s -> {segment.t1:.2f}s]     [{segment.t0:.2f}s -> {segment.t1:.2f}s]
         formatted_segments.append(formatted_segment)
-    return formatted_segments
+    return '\n'.join(formatted_segments)
 
 if __name__ == '__main__':
     transcription = transcribe('Store.m4a')
     print(transcription)
-    for transcriptions in transcription:
-        print(transcriptions)

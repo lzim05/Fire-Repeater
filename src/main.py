@@ -1,27 +1,16 @@
 #!/usr/bin/env python3
-import sys
-import os
-from pathlib import Path
+import asyncio
+from wisper import transcribe
+from telegram_bot import group_message
 
 
 def main():
-    # Get audio file path from command line
-    audio_file = sys.argv[1]
-
-    # 1. Upload to GCS (for backup/archive)
-    gcs_url = upload_to_gcs(audio_file)
-
-    # 2. Send SMS alert (fast, fire and forget)
-    send_sms_alert()
-
-    # 3. Upload audio to Telegram
-    telegram_message = upload_to_telegram(audio_file)
-
-    # 4. Transcribe with Whisper
-    transcription = transcribe_audio(audio_file)
-
-    # 5. Send transcription to Telegram
-    send_transcription_to_telegram(transcription)
+    try:
+        transcription = transcribe('Store.m4a')
+        print(transcription)
+        asyncio.run(group_message('Store.m4a',transcription))
+    except Exception as e:
+        print(e)
 
 
 if __name__ == "__main__":
