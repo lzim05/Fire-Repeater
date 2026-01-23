@@ -8,12 +8,14 @@ def transcribe(filename):
     # Transcribe audio
     segments = model.transcribe(filename)
 
-    # Print results
-    #for segment in segments:
-        #return(f"[{segment.t0:.2f}s -> {segment.t1:.2f}s]{segment.text}") #[{segment.t0:.2f}s -> {segment.t1:.2f}s]
-    return segments
+    formatted_segments = []
+    for segment in segments:
+        formatted_segment =f"{segment.text}" #[{segment.t0:.2f}s -> {segment.t1:.2f}s]     [{segment.t0:.2f}s -> {segment.t1:.2f}s]
+        formatted_segments.append(formatted_segment)
+    return formatted_segments
 
 if __name__ == '__main__':
     transcription = transcribe('Store.m4a')
-    for segment in transcription:
-        print(segment)
+    print(transcription)
+    for transcriptions in transcription:
+        print(transcriptions)

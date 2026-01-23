@@ -2,3 +2,5 @@
 # Python: >=3.14
 # Last updated: 2024-01-14
 pywhispercpp==1.4.1
+python-telegram-bot
+python-dotenv
