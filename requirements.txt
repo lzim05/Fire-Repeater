@@ -1,6 +1,6 @@
 # Project: TTD
 # Python: >=3.14
-# Last updated: 2024-01-14
-pywhispercpp==1.4.1
+# Last updated: 2024-02-09
+pywhispercpp
 python-telegram-bot
 python-dotenv
