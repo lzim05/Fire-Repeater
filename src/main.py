@@ -5,15 +5,16 @@ import traceback
 import datetime
 import os
 from wisper import transcribe
-from telegram_bot import group_message
+from telegram_bot import group_message, audio_message
 
 
 def main():
     tone = sys.argv[1]
     audio = sys.argv[2]
+    asyncio.run(audio_message(audio))
     transcription = transcribe(audio)
     print(transcription)
-    asyncio.run(group_message(audio, transcription))
+    asyncio.run(group_message(transcription))
 
 
 if __name__ == "__main__":
