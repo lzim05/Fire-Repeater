@@ -30,12 +30,8 @@ def transcribe(filename):
             'compand=attacks=0.3:decays=0.8:points=-80/-80|-45/-15|-27/-9|0/-7|20/-7'  # Compress dynamics
         ]"""
         filters = [
-            'agate=threshold=-35dB:attack=10:release=400',  # Kill squelch noise between transmissions
-            'highpass=f=300',
-            'lowpass=f=3400',  # Wider band for consonants
-            'equalizer=f=3000:t=h:w=2000:g=-6',  # De-emphasis
-            'afftdn=nf=-20',  # Slightly less aggressive noise floor
-            'compand=attacks=0.1:decays=0.5:points=-80/-80|-50/-50|-35/-20|-20/-12|0/-6',
+            'highpass=f=80',
+            'afftdn=nf=-30',
             'loudnorm=I=-16:TP=-1.5',
         ]
 
