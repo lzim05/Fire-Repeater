@@ -4,17 +4,19 @@ import asyncio
 import traceback
 import datetime
 import os
-from wisper import transcribe
+from deepgram_ttd import transcribe
 from telegram_bot import group_message, audio_message
+from address_validation import link_from_text
 
 
 def main():
     tone = sys.argv[1]
     audio = sys.argv[2]
-    asyncio.run(audio_message(audio))
-    transcription = transcribe(audio)
-    print(transcription)
-    asyncio.run(group_message(transcription))
+    asyncio.run(audio_message(audio)) #send audio on telegram
+    transcription = transcribe(audio) #transcribe audio
+    transcriptionwl = transcription + link_from_text(transcription)
+    print(transcriptionwl)
+    asyncio.run(group_message(transcriptionwl)) #send transcription on telegram
 
 
 if __name__ == "__main__":

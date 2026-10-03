@@ -80,10 +80,18 @@ def transcribe(filename):
             keyterm=[
                 'Cantril',
                 'Milton',
+                'Douds',
+                'Birmingham',
+                'Stockport',
+                'Keosauqua',
+                'Farmington',
+                'Bonaparte',
                 '10-22',
                 'West Responders',
                 'Van Buren county',
                 'fire',
+                'Time out',
+                'EMS',
             ],
         )
 
